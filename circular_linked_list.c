@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef int elemType;	//元素类型
+typedef int dataType;	//元素类型
 
 typedef struct sNode{
-	elemType data;	//存放数据信息 
+	dataType data;	//存放数据信息 
 	struct sNode* next;	//存放后继元素的地址 
 } LNode,*pLinkList;
 
@@ -15,9 +15,9 @@ int Length_LinkList(pLinkList pHead);
 //3.按序号查找 
 pLinkList Location_LinkList_Pos(pLinkList pHead,int i);
 //4.按值查找 
-pLinkList Location_LinkList_Value(pLinkList pHead,elemType key);
+pLinkList Location_LinkList_Value(pLinkList pHead,dataType key);
 //4.插入元素(将x插入链表第i个位置上，返回【1:成功；0:插入位置不合法；-1:溢出；-2:链表不存在】)
-int Insert_LinkList(pLinkList pHead,int i,elemType key);
+int Insert_LinkList(pLinkList pHead,int i,dataType key);
 //5.删除元素(删除第i个位置上的元素，返回【1:成功；0:删除位置不合法；-1:链表不存在】)
 int Delete_LinkList(pLinkList pHead,int i);
 //6.遍历链表
@@ -113,7 +113,7 @@ pLinkList Location_LinkList_Pos(pLinkList pHead,int i)
 
 //4.插入元素(将x插入链表第i个位置上，返回【1:成功；-2:链表不存在】)
 //如果插入位置为链表末尾，则需要调整尾结点的指针域
-int Insert_LinkList(pLinkList pHead,int i,elemType key)
+int Insert_LinkList(pLinkList pHead,int i,dataType key)
 {
 	pLinkList preNode = Location_LinkList_Pos(pHead,i-1);
 	if(preNode==NULL)
