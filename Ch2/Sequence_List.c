@@ -24,6 +24,8 @@ int Insert_SeqList(pSeqList pL,int i,DataType key);
 int Delete_SeqList(pSeqList pL,int i);
 //7.打印每个元素
 void Print_SeqList(pSeqList pL);
+//8.拷贝顺序表
+pSeqList Copy_SeqList(pSeqList pL);
 
 
 void test();
@@ -71,7 +73,7 @@ int Length_SeqList(pSeqList pL)
 {
 	if(pL==NULL)
 	{
-		printf("线性表不存在\n");
+		printf("顺序表不存在\n");
 		return -1;
 	}
 	return pL->length;
@@ -83,7 +85,7 @@ DataType Location_SeqList_I(pSeqList pL,int i)
 {
 	if(pL==NULL)
 	{
-		printf("线性表不存在\n");
+		printf("顺序表不存在\n");
 		return -2;
 	}
 	if(i<1||i>pL->length)	//i有效范围在1至length之间
@@ -95,13 +97,13 @@ DataType Location_SeqList_I(pSeqList pL,int i)
 }
 
 //4.顺序表的检索操作：获取关键字为key的第一个位置
-//返回值：-1->线性表不存在
-//返回值：0->线性表中没有该值的元素
+//返回值：-1->顺序表不存在
+//返回值：0->顺序表中没有该值的元素
 int Location_SeqList_Key(pSeqList pL,DataType key)
 {
 	if(pL==NULL)
 	{
-		printf("线性表不存在\n");
+		printf("顺序表不存在\n");
 		return -1;
 	}
 	int index=0;
@@ -119,7 +121,7 @@ int Insert_SeqList(pSeqList pL,int i,DataType key)
 {
 	if(pL==NULL)
 	{
-		printf("线性表不存在\n");
+		printf("顺序表不存在\n");
 		return -2;
 	}
 	if(pL->length>=MaxSize)
@@ -150,7 +152,7 @@ int Delete_SeqList(pSeqList pL,int i)
 {
 	if(pL==NULL)
 	{
-		printf("线性表不存在\n");
+		printf("顺序表不存在\n");
 		return -1;
 	}
 	if(i<1||i>pL->length)	//i有效范围在1至length之间
@@ -175,12 +177,12 @@ void Print_SeqList(pSeqList pL)
 {
 	if(pL==NULL)
 	{
-		printf("线性表不存在\n");
+		printf("顺序表不存在\n");
 		return;
 	}
 	if(pL->length==0)
 	{
-		printf("线性表为空\n");
+		printf("顺序表为空\n");
 		return;
 	}
 	int i=0;
@@ -189,4 +191,21 @@ void Print_SeqList(pSeqList pL)
 		printf("%d ",pL->data[i]);
 	}
 	printf("\n");
+}
+
+//8.拷贝顺序表
+pSeqList Copy_SeqList(pSeqList pL)
+{
+    if(pL==NULL)
+    {
+        printf("顺序表不存在\n");
+		return NULL;
+    }
+    pSeqList pRet=Init_SeqList();
+    int i;
+    for(i=0;i<pL->length;i++)
+    {
+       Insert_SeqList(pRet,i+1,pL->data[i]);
+    }
+    return pRet;
 }
