@@ -17,7 +17,7 @@ void LinkedList_Test()
         Insert_LinkedList(pHead,i,i);
     }
     Print_LinkedList(pHead);
-    printf("µ¥Á´±í³¤¶È= %d\n",Length_LinkedList(pHead));
+    printf("å•é“¾è¡¨é•¿åº¦= %d\n",Length_LinkedList(pHead));
 
     Delete_LinkedList(pHead,9);
 
@@ -26,25 +26,25 @@ void LinkedList_Test()
     Print_LinkedList(pHead);
 }
 
-//1.´´½¨¿Õµ¥Á´±í
+//1.åˆ›å»ºç©ºå•é“¾è¡¨
 pLinkedList Create_LinkedList()
 {
-    pLinkedList pHead=(pLinkedList)malloc(sizeof(LNode));   //´´½¨Í·½áµã
+    pLinkedList pHead=(pLinkedList)malloc(sizeof(LNode));   //åˆ›å»ºå¤´ç»“ç‚¹
     if(pHead==NULL)
     {
         printf("malloc error\n");
         return NULL;
     }
     pHead->next=NULL;
-    return pHead;   //·µ»ØÍ·Ö¸Õë
+    return pHead;   //è¿”å›å¤´æŒ‡é’ˆ
 }
 
-//2.Ïú»Ùµ¥Á´±í
+//2.é”€æ¯å•é“¾è¡¨
 void Distroy_LinkedList(pLinkedList pHead)
 {
     if(pHead==NULL)
     {
-        printf("µ¥Á´±í²»´æÔÚ\n");
+        printf("å•é“¾è¡¨ä¸å­˜åœ¨\n");
         return;
     }
     pLinkedList pNode=pHead;
@@ -55,25 +55,25 @@ void Distroy_LinkedList(pLinkedList pHead)
         free(pNode);
         pNode=pTemp;
     }
-    //Í·½áµã¿Õ¼ä²»ÊÍ·Å
+    //å¤´ç»“ç‚¹ç©ºé—´ä¸é‡Šæ”¾
     pHead->next=NULL;
 }
 
-//3.Çóµ¥Á´±í±í³¤
+//3.æ±‚å•é“¾è¡¨è¡¨é•¿
 int Length_LinkedList(pLinkedList pHead)
 {
     if(pHead==NULL)
     {
-        printf("µ¥Á´±í²»´æÔÚ\n");
+        printf("å•é“¾è¡¨ä¸å­˜åœ¨\n");
         return -1;
     }
     if(pHead->next==NULL)
     {
-        printf("µ¥Á´±íÎª¿Õ\n");
+        printf("å•é“¾è¡¨ä¸ºç©º\n");
         return 0;
     }
     int count=0;
-    pLinkedList pNode=pHead->next;  //pNodeÎªµÚÒ»¸öÊı¾İ½áµã
+    pLinkedList pNode=pHead->next;  //pNodeä¸ºç¬¬ä¸€ä¸ªæ•°æ®ç»“ç‚¹
     while(pNode)
     {
         pNode=pNode->next;
@@ -82,17 +82,17 @@ int Length_LinkedList(pLinkedList pHead)
     return count;
 }
 
-//4.²éÕÒ²Ù×÷£º·µ»ØĞòºÅÎªiµÄÊı¾İ½áµãµÄµØÖ·
+//4.æŸ¥æ‰¾æ“ä½œï¼šè¿”å›åºå·ä¸ºiçš„æ•°æ®ç»“ç‚¹çš„åœ°å€
 pLinkedList Locate_LinkedList_Pos(pLinkedList pHead,int i)
 {
     if(pHead==NULL)
     {
-        printf("µ¥Á´±í²»´æÔÚ\n");
+        printf("å•é“¾è¡¨ä¸å­˜åœ¨\n");
         return NULL;
     }
     if(i<0)
     {
-        printf("iÎ»ÖÃÎŞĞ§\n");
+        printf("iä½ç½®æ— æ•ˆ\n");
         return NULL;
     }
     int j=0;
@@ -106,15 +106,15 @@ pLinkedList Locate_LinkedList_Pos(pLinkedList pHead,int i)
         pNode=pNode->next;
         j++;
     }
-    return NULL;    //i³¬³öµ¥Á´±í³¤¶È
+    return NULL;    //iè¶…å‡ºå•é“¾è¡¨é•¿åº¦
 }
 
-//5.²éÕÒ²Ù×÷£º²éÕÒÖµÎªkeyµÄ½áµã£¬·µ»Ø½áµãµØÖ·
+//5.æŸ¥æ‰¾æ“ä½œï¼šæŸ¥æ‰¾å€¼ä¸ºkeyçš„ç»“ç‚¹ï¼Œè¿”å›ç»“ç‚¹åœ°å€
 pLinkedList Locate_LinkedList_Vaule(pLinkedList pHead,DataType key)
 {
     if(pHead==NULL)
     {
-        printf("µ¥Á´±í²»´æÔÚ\n");
+        printf("å•é“¾è¡¨ä¸å­˜åœ¨\n");
         return NULL;
     }
     pLinkedList pNode=pHead->next;
@@ -130,13 +130,13 @@ pLinkedList Locate_LinkedList_Vaule(pLinkedList pHead,DataType key)
     return NULL;
 }
 
-//6. ²åÈë²Ù×÷:ÔÚµÚi¸öÎ»ÖÃÇ°²åÈëÒ»¸öÖµÎªxµÄĞÂ½Úµã£¬
+//6. æ’å…¥æ“ä½œ:åœ¨ç¬¬iä¸ªä½ç½®å‰æ’å…¥ä¸€ä¸ªå€¼ä¸ºxçš„æ–°èŠ‚ç‚¹ï¼Œ
 int Insert_LinkedList(pLinkedList pHead,int i,DataType key)
 {
-    pLinkedList pNode=Locate_LinkedList_Pos(pHead,i-1); //²éÕÒµÚi-1¸öÊı¾İ½áµã
+    pLinkedList pNode=Locate_LinkedList_Pos(pHead,i-1); //æŸ¥æ‰¾ç¬¬i-1ä¸ªæ•°æ®ç»“ç‚¹
     if(pNode==NULL)
     {
-        printf("µ¥Á´±íÎª¿Õ»òÎ»ÖÃiÎŞĞ§\n");
+        printf("å•é“¾è¡¨ä¸ºç©ºæˆ–ä½ç½®iæ— æ•ˆ\n");
         return -1;
     }
     pLinkedList pNew=(pLinkedList)malloc(sizeof(LNode));
@@ -151,14 +151,14 @@ int Insert_LinkedList(pLinkedList pHead,int i,DataType key)
     return 1;
 }
 
-//7.É¾³ı²Ù×÷£ºÉ¾³ıµÚi¸ö½áµã
+//7.åˆ é™¤æ“ä½œï¼šåˆ é™¤ç¬¬iä¸ªç»“ç‚¹
 int Delete_LinkedList(pLinkedList pHead,int i)
 {
-    pLinkedList pNode=Locate_LinkedList_Pos(pHead,i-1); //²éÕÒµÚi-1¸öÊı¾İ½áµã
-    //µÚi¸öÊı¾İÔªËØ¿ÉÄÜ²»´æÔÚ£¨Ç°ÃæÖ»ÅĞ¶ÏÁËµÚi-1¸öÊı¾İÔªËØÊÇ·ñ´æÔÚ£©
+    pLinkedList pNode=Locate_LinkedList_Pos(pHead,i-1); //æŸ¥æ‰¾ç¬¬i-1ä¸ªæ•°æ®ç»“ç‚¹
+    //ç¬¬iä¸ªæ•°æ®å…ƒç´ å¯èƒ½ä¸å­˜åœ¨ï¼ˆå‰é¢åªåˆ¤æ–­äº†ç¬¬i-1ä¸ªæ•°æ®å…ƒç´ æ˜¯å¦å­˜åœ¨ï¼‰
     if(pNode==NULL||pNode->next==NULL)
     {
-        printf("Î»ÖÃiÎŞĞ§\n");
+        printf("ä½ç½®iæ— æ•ˆ\n");
         return -1;
     }
     pLinkedList pDelNode=pNode->next;
@@ -167,17 +167,17 @@ int Delete_LinkedList(pLinkedList pHead,int i)
     return 1;
 }
 
-//8.±éÀúµ¥Á´±í
+//8.éå†å•é“¾è¡¨
 void Print_LinkedList(pLinkedList pHead)
 {
     if(pHead==NULL)
     {
-        printf("µ¥Á´±í²»´æÔÚ\n");
+        printf("å•é“¾è¡¨ä¸å­˜åœ¨\n");
         return;
     }
     if(pHead->next==NULL)
     {
-        printf("µ¥Á´±íÎª¿Õ\n");
+        printf("å•é“¾è¡¨ä¸ºç©º\n");
         return;
     }
     pLinkedList pNode=pHead->next;

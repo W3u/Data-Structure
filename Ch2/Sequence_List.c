@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "Sequence_List.h"
 
 void Sequence_List();

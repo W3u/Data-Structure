@@ -8,26 +8,26 @@ typedef struct sNode{
     struct sNode* next;
 }LNode,* pLinkedList;
 
-//1.´´½¨¿Õµ¥Á´±í
+//1.åˆ›å»ºç©ºå•é“¾è¡¨
 pLinkedList Create_LinkedList();
 
-//2.Ïú»Ùµ¥Á´±í
+//2.é”€æ¯å•é“¾è¡¨
 void Distroy_LinkedList(pLinkedList pHead);
 
-//3.Çóµ¥Á´±í±í³¤
+//3.æ±‚å•é“¾è¡¨è¡¨é•¿
 int Length_LinkedList(pLinkedList pHead);
 
-//4.²éÕÒ²Ù×÷£º·µ»ØÎ»ÖÃÎªiµÄµØÖ·
+//4.æŸ¥æ‰¾æ“ä½œï¼šè¿”å›ä½ç½®ä¸ºiçš„åœ°å€
 pLinkedList Locate_LinkedList_Pos(pLinkedList pHead,int i);
 
-//5.²éÕÒ²Ù×÷£º²éÕÒÖµÎªkeyµÄ½áµã£¬·µ»Ø½áµãµØÖ·
+//5.æŸ¥æ‰¾æ“ä½œï¼šæŸ¥æ‰¾å€¼ä¸ºkeyçš„ç»“ç‚¹ï¼Œè¿”å›ç»“ç‚¹åœ°å€
 pLinkedList Locate_LinkedList_Vaule(pLinkedList pHead,DataType key);
 
-//6. ²åÈë²Ù×÷:ÔÚµÚi¸öÎ»ÖÃÇ°²åÈëÒ»¸öÖµÎªxµÄĞÂ½Úµã£¬
+//6. æ’å…¥æ“ä½œ:åœ¨ç¬¬iä¸ªä½ç½®å‰æ’å…¥ä¸€ä¸ªå€¼ä¸ºxçš„æ–°èŠ‚ç‚¹ï¼Œ
 int Insert_LinkedList(pLinkedList pHead,int i,DataType key);
 
-//7.É¾³ı²Ù×÷£ºÉ¾³ıµÚi¸ö½áµã
+//7.åˆ é™¤æ“ä½œï¼šåˆ é™¤ç¬¬iä¸ªç»“ç‚¹
 int Delete_LinkedList(pLinkedList pHead,int i);
 
-//8.±éÀúµ¥Á´±í
+//8.éå†å•é“¾è¡¨
 void Print_LinkedList(pLinkedList pHead);
