@@ -22,7 +22,7 @@ void LinkedList_Test()
     Delete_LinkedList(pHead,9);
 
     Print_LinkedList(pHead);
-    Distroy_LinkedList(pHead);
+    Distroy_LinkedList(&pHead);
     Print_LinkedList(pHead);
 }
 
@@ -39,24 +39,20 @@ pLinkedList Create_LinkedList()
     return pHead;   //返回头指针
 }
 
-//2.销毁单链表
-void Distroy_LinkedList(pLinkedList pHead)
+//2.销毁单链表:销毁后单链表的头指针发生变化（变为空指针）
+//故要将头指针的地址作为形参
+void Distroy_LinkedList(pLinkedList* ppHead)
 {
-    if(pHead==NULL)
-    {
-        printf("单链表不存在\n");
-        return;
-    }
-    pLinkedList pNode=pHead;
-    pLinkedList pTemp;
-    while(pNode!=NULL)
-    {
-        pTemp=pNode->next;
-        free(pNode);
-        pNode=pTemp;
-    }
-    //头结点空间不释放
-    pHead->next=NULL;
+	pLinkedList pNode = *ppHead;
+	pLinkedList pTemp;
+	while (pNode != NULL)
+	{
+		pTemp = pNode->next;
+		free(pNode);
+		pNode = pTemp;
+	}
+	//头指针赋值为NULL
+	*ppHead = NULL;
 }
 
 //3.求单链表表长
@@ -130,7 +126,7 @@ pLinkedList Locate_LinkedList_Vaule(pLinkedList pHead,DataType key)
     return NULL;
 }
 
-//6. 插入操作:在第i个位置前插入一个值为x的新节点，
+//6. 插入操作:在第i个位置前插入一个值为x的新结点，
 int Insert_LinkedList(pLinkedList pHead,int i,DataType key)
 {
     pLinkedList pNode=Locate_LinkedList_Pos(pHead,i-1); //查找第i-1个数据结点

@@ -12,7 +12,7 @@ typedef struct sNode{
 pLinkedList Create_LinkedList();
 
 //2.销毁单链表
-void Distroy_LinkedList(pLinkedList pHead);
+void Distroy_LinkedList(pLinkedList* ppHead)
 
 //3.求单链表表长
 int Length_LinkedList(pLinkedList pHead);
